@@ -1,0 +1,11 @@
+node_modules
+dist
+src/generated
+.env
+.env.*
+!.env.example
+*.log
+*.md
+.git
+.gitignore
+prisma/migrations/*.lock

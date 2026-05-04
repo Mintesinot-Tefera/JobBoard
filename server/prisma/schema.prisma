@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  bio          String?  @db.Text
+  headline     String?
+  location     String?
+  website      String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  jobs         Job[]
+  applications Application[]
+
+  @@map("users")
+}
+
+enum JobCategory {
+  ENGINEERING
+  DESIGN
+  MARKETING
+  SALES
+  FINANCE
+  HR
+  OPERATIONS
+  PRODUCT
+  DATA
+  OTHER
+}
+
+enum EmploymentType {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  INTERNSHIP
+}
+
+model Job {
+  id             String         @id @default(cuid())
+  title          String
+  description    String         @db.Text
+  category       JobCategory
+  companyName    String
+  companyLogo    String?
+  location       String
+  salaryMin      Int?
+  salaryMax      Int?
+  employmentType EmploymentType
+  deadline       DateTime
+  postedById     String
+  postedBy       User           @relation(fields: [postedById], references: [id])
+  applications   Application[]
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  @@map("jobs")
+}
+
+enum ApplicationStatus {
+  SUBMITTED
+  IN_REVIEW
+  INTERVIEW
+  OFFERED
+  REJECTED
+  WITHDRAWN
+}
+
+model Application {
+  id          String            @id @default(cuid())
+  coverLetter String?           @db.Text
+  status      ApplicationStatus @default(SUBMITTED)
+  userId      String
+  jobId       String
+  user        User              @relation(fields: [userId], references: [id])
+  job         Job               @relation(fields: [jobId], references: [id])
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@unique([userId, jobId])
+  @@map("applications")
+}
