@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Outer diamond outline -->
+  <path d="M12 1L23 12L12 23L1 12Z" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Inner filled diamond -->
+  <path d="M12 7.5L16.5 12L12 16.5L7.5 12Z" fill="#2563eb"/>
+</svg>
