@@ -23,6 +23,7 @@ describe('useAuth hook', () => {
       isLoading: false,
       login: vi.fn(),
       register: vi.fn(),
+      loginWithGoogle: vi.fn(),
       logout: vi.fn(),
       updateProfile: vi.fn(),
     };

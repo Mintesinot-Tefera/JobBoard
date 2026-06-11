@@ -24,6 +24,7 @@ function renderWithAuth(user: typeof mockUser | null, isLoading = false) {
         isLoading,
         login: vi.fn(),
         register: vi.fn(),
+        loginWithGoogle: vi.fn(),
         logout: vi.fn(),
         updateProfile: vi.fn(),
       }}
