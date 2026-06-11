@@ -23,6 +23,7 @@ function renderRegisterPage() {
         isLoading: false,
         login: vi.fn(),
         register: mockRegister,
+        loginWithGoogle: vi.fn(),
         logout: vi.fn(),
         updateProfile: vi.fn(),
       }}

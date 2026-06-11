@@ -24,6 +24,7 @@ function renderLoginPage() {
         isLoading: false,
         login: mockLogin,
         register: vi.fn(),
+        loginWithGoogle: vi.fn(),
         logout: vi.fn(),
         updateProfile: vi.fn(),
       }}
