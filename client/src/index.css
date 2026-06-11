@@ -1246,6 +1246,11 @@ button.link:hover {
   background: var(--color-border);
 }
 
+.auth-google-btn {
+  display: flex;
+  justify-content: center;
+}
+
 @media (min-width: 900px) {
   .auth-brand {
     display: flex;

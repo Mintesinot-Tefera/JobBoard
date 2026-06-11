@@ -1,9 +1,9 @@
 #!/bin/sh
 set -e
 
-echo "Running database migrations..."
-until npx prisma migrate deploy; do
-  echo "Migration failed, retrying in 2s..."
+echo "Pushing schema to database..."
+until npx prisma db push --accept-data-loss; do
+  echo "Schema push failed, retrying in 2s..."
   sleep 2
 done
 

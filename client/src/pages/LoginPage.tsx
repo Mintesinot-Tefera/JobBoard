@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { GoogleLogin } from '@react-oauth/google';
 import { useAuth } from '../context/useAuth';
 
 export function LoginPage() {
-  const { login } = useAuth();
+  const { login, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname ?? '/';
@@ -85,6 +86,28 @@ export function LoginPage() {
           </p>
 
           <div className="auth-card">
+            <div className="auth-google-btn">
+              <GoogleLogin
+                onSuccess={async ({ credential }) => {
+                  if (!credential) return;
+                  setError(null);
+                  try {
+                    await loginWithGoogle(credential);
+                    navigate(from, { replace: true });
+                  } catch {
+                    setError('Google sign-in failed. Please try again.');
+                  }
+                }}
+                onError={() => setError('Google sign-in failed. Please try again.')}
+                width="100%"
+                text="signin_with"
+                shape="rectangular"
+                theme="outline"
+              />
+            </div>
+
+            <div className="auth-divider">or</div>
+
             <form className="form" onSubmit={handleSubmit}>
               {error && (
                 <div className="alert-error" role="alert">
