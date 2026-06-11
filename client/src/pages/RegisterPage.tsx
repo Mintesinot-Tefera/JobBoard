@@ -98,7 +98,6 @@ export function RegisterPage() {
                   }
                 }}
                 onError={() => setError('Google sign-in failed. Please try again.')}
-                width="100%"
                 text="signup_with"
                 shape="rectangular"
                 theme="outline"
