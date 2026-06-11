@@ -5,10 +5,14 @@ node_modules/
 .env
 .env.local
 .env.*.local
+.env.production
+.env.staging
 
 # Builds
 dist/
 build/
+coverage/
+*.tsbuildinfo
 
 # Generated Prisma client
 server/src/generated/

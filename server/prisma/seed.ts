@@ -33,7 +33,7 @@ async function main() {
       salaryMin: 150000,
       salaryMax: 200000,
       employmentType: 'FULL_TIME' as const,
-      deadline: new Date('2026-06-01'),
+      deadline: new Date('2026-07-11'),
       postedById: user.id,
     },
     {
@@ -47,7 +47,7 @@ async function main() {
       salaryMin: 120000,
       salaryMax: 160000,
       employmentType: 'FULL_TIME' as const,
-      deadline: new Date('2026-05-15'),
+      deadline: new Date('2026-07-15'),
       postedById: user.id,
     },
     {
@@ -61,7 +61,7 @@ async function main() {
       salaryMin: 100000,
       salaryMax: 140000,
       employmentType: 'FULL_TIME' as const,
-      deadline: new Date('2026-05-20'),
+      deadline: new Date('2026-07-20'),
       postedById: user.id,
     },
     {
@@ -75,7 +75,7 @@ async function main() {
       salaryMin: 60000,
       salaryMax: 90000,
       employmentType: 'FULL_TIME' as const,
-      deadline: new Date('2026-04-30'),
+      deadline: new Date('2026-07-30'),
       postedById: user.id,
     },
     {
@@ -89,7 +89,7 @@ async function main() {
       salaryMin: 85000,
       salaryMax: 120000,
       employmentType: 'FULL_TIME' as const,
-      deadline: new Date('2026-05-10'),
+      deadline: new Date('2026-07-10'),
       postedById: user.id,
     },
     {
@@ -103,7 +103,7 @@ async function main() {
       salaryMin: 55000,
       salaryMax: 75000,
       employmentType: 'FULL_TIME' as const,
-      deadline: new Date('2026-05-25'),
+      deadline: new Date('2026-07-25'),
       postedById: user.id,
     },
     {
@@ -117,7 +117,7 @@ async function main() {
       salaryMin: 110000,
       salaryMax: 150000,
       employmentType: 'FULL_TIME' as const,
-      deadline: new Date('2026-06-15'),
+      deadline: new Date('2026-08-15'),
       postedById: user.id,
     },
     {
@@ -131,7 +131,7 @@ async function main() {
       salaryMin: 130000,
       salaryMax: 180000,
       employmentType: 'FULL_TIME' as const,
-      deadline: new Date('2026-05-30'),
+      deadline: new Date('2026-07-30'),
       postedById: user.id,
     },
     {
@@ -145,7 +145,7 @@ async function main() {
       salaryMin: 140000,
       salaryMax: 190000,
       employmentType: 'FULL_TIME' as const,
-      deadline: new Date('2026-06-10'),
+      deadline: new Date('2026-08-10'),
       postedById: user.id,
     },
     {
@@ -159,7 +159,7 @@ async function main() {
       salaryMin: 30000,
       salaryMax: 45000,
       employmentType: 'INTERNSHIP' as const,
-      deadline: new Date('2026-04-15'),
+      deadline: new Date('2026-07-15'),
       postedById: user.id,
     },
     {
@@ -173,7 +173,7 @@ async function main() {
       salaryMin: 35000,
       salaryMax: 50000,
       employmentType: 'PART_TIME' as const,
-      deadline: new Date('2026-05-01'),
+      deadline: new Date('2026-07-01'),
       postedById: user.id,
     },
     {
@@ -187,7 +187,7 @@ async function main() {
       salaryMin: 70,
       salaryMax: 120,
       employmentType: 'CONTRACT' as const,
-      deadline: new Date('2026-04-20'),
+      deadline: new Date('2026-07-20'),
       postedById: user.id,
     },
   ];

@@ -1,0 +1,37 @@
+services:
+  # ── Backend API (Docker) ────────────────────────────────────────────────────
+  - type: web
+    name: jobboard-api
+    env: docker
+    dockerContext: ./server
+    dockerfilePath: ./server/Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      # Set these manually in the Render dashboard:
+      - key: DATABASE_URL
+        sync: false   # Neon connection string (postgresql://...?sslmode=require)
+      - key: JWT_SECRET
+        generateValue: true   # Render will auto-generate a secure value
+      - key: CLIENT_URL
+        sync: false   # Your Render frontend URL, e.g. https://jobboard-client.onrender.com
+
+  # ── Frontend (Static Site) ──────────────────────────────────────────────────
+  - type: web
+    name: jobboard-client
+    env: static
+    rootDir: client
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      # SPA fallback — all paths served from index.html
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      # Set this manually in the Render dashboard:
+      - key: VITE_API_URL
+        sync: false   # e.g. https://jobboard-api.onrender.com/api

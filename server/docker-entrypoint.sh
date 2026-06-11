@@ -2,7 +2,10 @@
 set -e
 
 echo "Running database migrations..."
-npx prisma migrate deploy
+until npx prisma migrate deploy; do
+  echo "Migration failed, retrying in 2s..."
+  sleep 2
+done
 
 echo "Starting server..."
 exec node dist/index.js
